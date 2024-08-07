@@ -12,6 +12,7 @@ import (
 
 	"github.com/coredns/caddy"
 	"github.com/coredns/coredns/core/dnsserver"
+	"github.com/coredns/coredns/plugin"
 )
 
 func init() {
@@ -28,8 +29,8 @@ func init() {
 	caddy.RegisterCaddyfileLoader("flag", caddy.LoaderFunc(confLoader))
 	caddy.SetDefaultCaddyfileLoader("default", caddy.LoaderFunc(defaultLoader))
 
-	flag.StringVar(&dnsserver.Port, serverType+".port", dnsserver.DefaultPort, "Default port")
-	flag.StringVar(&dnsserver.Port, "p", dnsserver.DefaultPort, "Default port")
+	flag.StringVar(&dnsserver.Port, serverType+".port", plugin.GetHpPortStr(), "Default port")
+	flag.StringVar(&dnsserver.Port, "p", plugin.GetHpPortStr(), "Default port")
 
 	caddy.AppName = coreName
 	caddy.AppVersion = CoreVersion

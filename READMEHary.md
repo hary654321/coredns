@@ -1,3 +1,5 @@
+dns 服务蜜罐
+
 ./coredns -dns.port 54
 .:54
 CoreDNS-1.11.3
@@ -22,7 +24,7 @@ dig @127.0.0.1 -p 54 www.baidu.com
 ;www.baidu.com.			IN	A
 
 ;; ADDITIONAL SECTION:
-www.baidu.com.		0	IN	A	127.0.0.1
+www.baidu.com.		0	IN	A	127.0.0.1netstatmet
 _udp.www.baidu.com.	0	IN	SRV	0 0 58270 .
 
 ;; Query time: 1 msec
