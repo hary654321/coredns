@@ -1,0 +1,14 @@
+version: '2.3'
+
+services:
+
+
+  coredns_honeypot:
+    container_name: coredns
+    restart: always
+    network_mode: "host"
+    image: "hary654321/coredns"
+    volumes:
+     - $PWD/data/coredns/log:/var/log/coredns
+    environment:
+      HP_PORT: 54
